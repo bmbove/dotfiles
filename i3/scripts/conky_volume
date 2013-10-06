@@ -1,0 +1,15 @@
+#!/bin/sh
+
+headset="alsa_output.usb-Plantronics_Plantronics_GameCom_780-00-P780.analog-stereo"
+speakers="alsa_output.pci-0000_00_1b.0.analog-surround-51"
+device=""
+
+if [ $1 == "headset" ]; then
+    device=${headset}
+fi
+
+if [ $1 == "speakers" ]; then
+    device=${speakers}
+fi
+
+ponymix --device ${device} get-volume

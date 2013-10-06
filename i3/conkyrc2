@@ -1,0 +1,46 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+
+[{ "full_text" : "CPU: ${hwmon 0 temp 1}C ${hwmon 1 temp 1}C" , "color" : "\#BCA9F5" },
+  { "full_text" : "ACPI: ${acpitemp}C" , "color" : "\#81F7D8" },
+  { "full_text" : "GPU: ${exec cat /home/brian/.i3/scripts/gputemp}C" , "color" : "\#81F7D8" },
+  { "full_text" : "SV: ${exec ponymix --device alsa_output.pci-0000_00_1b.0.analog-surround-5 get-volume}%" , "color" : "\#FF0000" },
+  { "full_text" : "HV: ${exec ponymix --device alsa_output.usb-Plantronics_Plantronics_GameCom_780-00-P780.analog-stereo get-volume}%" , "color" : "\#81F7D8" },
+  { "full_text" : "TCPU: ${top name 1}${top cpu 1}" , "color" : "\#81F7D8" },
+  { "full_text" : "TMEM: ${top_mem name 1}${top_mem mem 1}" , "color" : "\#81F7D8" },
+{ "full_text" : "${time} " , "color" : "\#8A0886" }],

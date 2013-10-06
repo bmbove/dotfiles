@@ -1,0 +1,53 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+
+[{ "full_text" : "/home ${fs_used /home} / ${fs_size /home} - ${fs_used_perc /home}%" , "color" : "\#BCA9F5" },
+ { "full_text" : "/ ${fs_used /} / ${fs_size /} - ${fs_used_perc /}%" , "color" : "\#9FF781" },
+ { "full_text" : "R: ${mem} / ${memmax} - ${memperc}%" , "color" : "\#81BEF7" },
+ { "full_text" : "D: " , "color" : "\#F3F781"   , "separator" : false },
+ { "full_text" : "${downspeed eth0}/s" , "color" : "\#ff0000"   , "separator" : false },
+ { "full_text" : "t: " , "color" : "\#ffffff"   , "separator" : false },
+ { "full_text" : "${totaldown eth0}" , "color" : "\#FA8258" },
+ { "full_text" : "U: " , "color" : "\#FF0000"  , "separator" : false },
+ { "full_text" : "${upspeed eth0}/s" , "color" : "\#FA8258"  , "separator" : false },
+ { "full_text" : "t: " , "color" : "\#ffffff"  , "separator" : false },
+ { "full_text" : "${totalup eth0}" , "color" : "\#F3F781"},
+ { "full_text" : "${addr eth0}" , "color" : "\#31B404" },
+ { "full_text" : "CPU: " , "color" : "\#ffffff" , "separator" : false },
+  { "full_text" : "${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% " , "color" : "\#81F7D8" },
+{ "full_text" : "${time} " , "color" : "\#8A0886" }],

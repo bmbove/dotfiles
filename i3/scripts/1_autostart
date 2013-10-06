@@ -1,0 +1,101 @@
+#! /bin/sh
+
+function wait_for_program {
+    RESULTS=0
+    n=0
+    while true
+    do
+    RESULTS=`xdotool search --onlyvisible --class ${1} | wc -l`
+    if [ $RESULTS -ge $2 ]; then
+        return true
+    else
+        if [ $n -eq 20 ]; then
+            xmessage "Error executing ${1} instance ${2}"
+            return false
+        else
+            n=`expr $n + 1`
+            sleep .1
+        fi
+    fi
+    done
+
+}
+
+########################
+#   workspace 1: urxvt #
+########################
+i3-msg "workspace 1: urxvt"
+
+urxvt &
+wait_for_program "URxvt" 1
+
+i3-msg "split h"
+
+urxvt &
+wait_for_program "URxvt" 2
+#sleep 1
+i3-msg "split v;"
+
+urxvt &
+wait_for_program "URxvt" 3
+#FOUND=`wait_for_program "URxvt" 3`
+#if $FOUND; then
+#    exit 0
+#else
+#    exit 1
+#fi
+
+########################
+#   workspace 2: devel #
+########################
+i3-msg "workspace 2: devel"
+
+urxvt &
+wait_for_program "URxvt" 1
+
+i3-msg "split h"
+
+urxvt &
+wait_for_program "URxvt" 2
+
+########################
+#   workspace 3: www   #
+########################
+i3-msg "workspace 3: www"
+
+firefox &
+wait_for_program "Firefox" 1
+
+########################
+#   workspace 4: file  #
+########################
+i3-msg "workspace 4: file"
+
+thunar &
+wait_for_program "Thunar" 1
+
+########################
+#   workspace 7: www   #
+########################
+i3-msg "workspace 7: www"
+
+firefox &
+wait_for_program "Firefox" 1
+
+########################
+#   workspace 8: devel #
+########################
+i3-msg "workspace 8: devel"
+
+urxvt &
+wait_for_program "URxvt" 1
+
+i3-msg "split h"
+
+urxvt &
+wait_for_program "URxvt" 2
+
+
+
+i3-msg "workspace 1: urxvt"
+i3-msg "workspace 7: www"

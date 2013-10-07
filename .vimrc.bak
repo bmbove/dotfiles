@@ -1,0 +1,44 @@
+
+"set tabstop=4 shiftwidth=4 expandtab
+"set number
+"map <S-Enter> o<Esc>
+
+"--- over 80 characters highlight for python files --
+au BufRead,BufNewFile *.py highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+au BufNewFile,BufRead *.py match OverLength /\%>80v.\+/
+
+"---color scheme---
+syntax on
+set t_Co=256
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+
+" Text Format
+"---indentation---
+" smartindent breaks for python comments
+"set smartindent  "indent smartly
+set tabstop=4    "4-space tabs
+set sts=4        "fix backspace for tabs
+set shiftwidth=4 "4-space indent
+set autoindent   "auto indent same as previous
+set smarttab
+set expandtab    "tabs -> spaces
+set shiftround   "round spaces to meet indentation
+set backspace=2
+set whichwrap=h,l,~,[,] "h and l will wrap on lines
+highlight Comment cterm=italic
+
+"---searching options---
+set ignorecase "case insensitive matching
+set smartcase  "case sensitive matching when I use uppercase
+set nohls      "no highlight for searches
+set incsearch  "search as you type
+set magic      "magic regex
+set wildignore=*.o,*.obj,*.bak,*.exe,*.so,*.dll,*.pyc,.sv,.hg,.bzr,.git
+
+
+"---visual---
+set showmatch  " show matching brackets
+
+set pastetoggle=<F2>

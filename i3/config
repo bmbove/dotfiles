@@ -23,6 +23,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindcode 123 exec $HOME/.i3/scripts/change_volume headset increase
+bindcode 122 exec $HOME/.i3/scripts/change_volume headset decrease
 # start a terminal
 bindsym $mod+Return exec urxvt
 bindsym $mod+b exec firefox

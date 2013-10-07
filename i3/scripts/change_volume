@@ -12,13 +12,6 @@ if [ $1 == "speakers" ]; then
     device=${speakers}
 fi
 
-ponymix --device ${device} is-muted
-muted=$?
+direction=$2
 
-volume=`ponymix --device ${device} get-volume`
-
-if [ $muted -eq 0 ]; then
-    echo "MUTE"
-else
-    echo "${volume}%"
-fi
+volume=`ponymix --device ${device} ${direction} 5`

@@ -9,7 +9,7 @@ function wait_for_program {
     if [ $RESULTS -ge $2 ]; then
         return true
     else
-        if [ $n -eq 20 ]; then
+        if [ $n -eq 100 ]; then
             xmessage "Error executing ${1} instance ${2}"
             return false
         else

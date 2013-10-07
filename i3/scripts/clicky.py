@@ -2,13 +2,54 @@
 
 import fileinput
 import json
+import subprocess
+from subprocess import check_output
 
-for line in fileinput.input():
-    with open("test.txt", "a") as myfile:
+def run_cmd(name, button):
+    if name == "speaker_volume":
+        change_volume("speaker", button)
+    if name == "headset_volume":
+        change_volume("headset", button)
+
+    return 1
+
+def change_volume(dev, button):
+    if dev == "speaker":
+        device = "alsa_output.pci-0000_00_1b.0.analog-surround-51"
+    if dev == "headset":
+        device = "alsa_output.usb-Plantronics_Plantronics_GameCom_780-00-P780.analog-stereo"
+    if button == "1":
+        direction = "increase"
+    if button == "3":
+        direction = "decrease"
+
+    if (button == "1") or (button == "3"):
+        check_output(["ponymix --device \"" + device + "\" " + direction + " 5"], stderr=subprocess.STDOUT, shell=True)
+
+    if button == "2":
+        check_output(["ponymix --device \"" + device + "\" toggle"], stderr=subprocess.STDOUT, shell=True)
+
+def main():
+
+    line = ""
+    for line in fileinput.input():
         line = line.strip()
         line = line.lstrip(",")
         if line != "":
             line = "[" + line + "]"
-            line = line + "\n"
-            myfile.write(line)
-    pass
+        pass
+
+    if line != "":
+        try:
+            command = json.loads(line)
+        except:
+            #check_output(["xmessage", "Error with line " + line])
+            exit(1)
+
+        if "name" in command[0]:
+            command[0]['button'] = str(command[0]['button'])
+            run_cmd(command[0]["name"], command[0]["button"])
+            exit(0)
+
+if __name__ == "__main__":
+    main()

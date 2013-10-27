@@ -32,9 +32,9 @@ URxvt*utmpInhibit:          true
 
 !! Yankable urls
 !! urxvt-url-select package
-URxvt.perl-ext:
-URxvt.perl-ext-common:
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.urlLauncher:   firefox
+URxvt.url-select.underline: true
 URxvt.underlineURLs: true
 
 URxvt*jumpScroll:           true

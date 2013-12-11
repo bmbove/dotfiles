@@ -161,27 +161,27 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-        output DFP7
+        output DVI-1
         status_command $HOME/.i3/scripts/conky
 }
 
 bar {
-        output DFP6
+        output DVI-0
         status_command $HOME/.i3/scripts/conky2
 }
-workspace "1: urxvt" output DFP6
-workspace "2: devel" output DFP6
-workspace "3: www" output DFP6
-workspace "4: file" output DFP6
-workspace "5: vm" output DFP6
-workspace "6: extra" output DFP6
+workspace "1: urxvt" output DVI-0
+workspace "2: devel" output DVI-0
+workspace "3: www" output DVI-0
+workspace "4: file" output DVI-0
+workspace "5: vm" output DVI-0
+workspace "6: extra" output DVI-0
 
-workspace "7: www" output DFP7
-workspace "8: devel" output DFP7
-workspace "9: mail" output DFP7
-workspace "10: office" output DFP7
-workspace "11: media" output DFP7
-workspace "12: extra" output DFP7
+workspace "7: www" output DVI-1
+workspace "8: devel" output DVI-1
+workspace "9: mail" output DVI-1
+workspace "10: office" output DVI-1
+workspace "11: media" output DVI-1
+workspace "12: extra" output DVI-1
 
 assign [class="Thunderbird"] "9: mail"
 assign [class="VirtualBox"] "5: vm"
@@ -191,6 +191,8 @@ assign [class="Pavucontrol"] "6: extra"
 assign [class="Gedit"] "10: office"
 assign [class="Chromium"] "7: www"
 assign [class="Mplayer"] "11: media"
+assign [class='XCalc'] floating enable
+assign [class='xcalc'] floating enable
 
 exec --no-startup-id "xrdb $HOME/.Xresources"
 exec sleep 3

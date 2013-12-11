@@ -11,15 +11,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# run systemd as user instance
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
-#exec startfluxbox
-#exec awesome
-exec sabnzbd &
-exec python2 $HOME/.sickbeard/Sick-Beard/SickBeard.py &
-exec mediatomb > /dev/null 2>&1 &
-exec thunar --daemon &
+
+source /etc/X11/xinit/xinitrc.d/30-dbus
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+
 exec i3

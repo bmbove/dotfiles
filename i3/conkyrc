@@ -37,7 +37,7 @@ TEXT
 # JSON for i3bar
 
 [{ "full_text" : "home ${fs_used /home} / ${fs_size /home} - ${fs_used_perc /home}%" , "color" : "\#BCA9F5" },
- { "full_text" : "media ${fs_used /home/brian/media} / ${fs_size /home/brian/media} - ${fs_used_perc /home/brian/media}%" , "color" : "\#9F1781" },
+ { "full_text" : "storage ${fs_used /home/brian/storage} / ${fs_size /home/brian/storage} - ${fs_used_perc /home/brian/storage}%" , "color" : "\#9F1781" },
  { "full_text" : "root ${fs_used /} / ${fs_size /} - ${fs_used_perc /}%" , "color" : "\#9FF781" },
  { "full_text" : "R: ${mem} / ${memmax} - ${memperc}%" , "color" : "\#81BEF7" },
  { "full_text" : "D: " , "color" : "\#F3F781"   , "separator" : false },

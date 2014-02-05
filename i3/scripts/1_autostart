@@ -48,15 +48,41 @@ wait_for_program "URxvt" 3
 ########################
 #   workspace 2: devel #
 ########################
+
 i3-msg "workspace 2: devel"
 
-urxvt &
+urxvt -e bash -c "/usr/bin/irssi" &
 wait_for_program "URxvt" 1
 
 i3-msg "split h"
 
 urxvt &
 wait_for_program "URxvt" 2
+
+i3-msg "split v"
+
+urxvt &
+wait_for_program "URxvt" 3
+
+i3-msg "layout tabbed"
+i3-msg "focus left"
+i3-msg "focus left"
+i3-msg "split v"
+
+urxvt &
+wait_for_program "URxvt" 4
+
+i3-msg "layout tabbed"
+
+#i3-msg "workspace 2: devel"
+
+#urxvt &
+#wait_for_program "URxvt" 1
+
+#i3-msg "split h"
+
+#urxvt &
+#wait_for_program "URxvt" 2
 
 ########################
 #   workspace 3: www   #

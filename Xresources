@@ -36,6 +36,7 @@ URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.urlLauncher:   firefox
 URxvt.url-select.underline: true
 URxvt.underlineURLs: true
+URxvt.clipboard.autocopy: true
 
 URxvt*jumpScroll:           true
 URxvt*skipScroll:           false

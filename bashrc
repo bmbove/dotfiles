@@ -10,7 +10,8 @@ alias la='ls -lah --color=auto'
 alias vi='vim'
 
 #PS1='\u@\h:$PWD\$ '
-EDITOR=vim
+EDITOR=/usr/local/bin/vim
+MAKEFLAGS='-j 6'
 
 
 function color_my_prompt {

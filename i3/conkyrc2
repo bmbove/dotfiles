@@ -31,16 +31,21 @@ override_utf8_locale no
 # set to 1 to disable averaging
 cpu_avg_samples 2
 
+pad_percents = 2
+
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
 # JSON for i3bar
 
-[{ "full_text" : "CPU: ${hwmon 0 temp 1}C ${hwmon 1 temp 1}C" , "color" : "\#BCA9F5" },
-  { "full_text" : "ACPI: ${acpitemp}C" , "color" : "\#81F7D8" },
-  { "full_text" : "GPU: ${exec $HOME/dotfiles/i3/scripts/conky_gputemp}C" , "color" : "\#FA58AC" },
+[{  "full_text" : "${execi 300 $HOME/.dotfiles/i3/scripts/weather 97330}" , "color" : "\#FF0FF5" },
+  { "full_text" : "CPU: ${hwmon 0 temp 1}C" , "color" : "\#BCA9F5" },
+  { "full_text" : "GPU: ${hwmon 3 temp 1}C" , "color" : "\#FA58AC" },
+  { "full_text" : "UP: ${uptime}" , "color" : "\#F39811" },
   { "name":"speaker_volume", "full_text" : "SV: ${exec $HOME/.i3/scripts/conky_volume speakers}" , "color" : "\#FA5858" },
   { "name": "headset_volume", "full_text" : "HV: ${exec $HOME/.i3/scripts/conky_volume headset}" , "color" : "\#FFFF00" },
+  { "full_text" : "RPROC: ${running_processes}" , "color" : "\#FA58AC" },
+  { "full_text" : "PROC: ${processes}" , "color" : "\#FF183C" },
   { "full_text" : "TCPU: ${exec $HOME/.i3/scripts/conky_process cpu}" , "color" : "\#81F7D8" },
   { "full_text" : "TMEM: ${exec $HOME/.i3/scripts/conky_process mem}" , "color" : "\#9AFE2E" },
 { "full_text" : "${time} " , "color" : "\#FFFFFF" }],

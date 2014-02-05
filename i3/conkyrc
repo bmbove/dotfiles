@@ -31,6 +31,8 @@ override_utf8_locale no
 # set to 1 to disable averaging
 cpu_avg_samples 2
 
+pad_percents 2
+
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 

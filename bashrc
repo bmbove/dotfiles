@@ -11,8 +11,6 @@ alias vi='vim'
 
 #PS1='\u@\h:$PWD\$ '
 EDITOR=/usr/local/bin/vim
-MAKEFLAGS='-j 6'
-
 
 function color_my_prompt {
     NORMAL="\[\033[0m\]"

@@ -25,7 +25,7 @@ def change_volume(dev, button):
         direction = "decrease"
 
     if (button == "1") or (button == "3"):
-        check_output(["ponymix --device \"" + device + "\" " + direction + " 5"], stderr=subprocess.STDOUT, shell=True)
+        check_output(["ponymix --device \"" + device + "\" " + direction + " 1"], stderr=subprocess.STDOUT, shell=True)
 
     if button == "2":
         check_output(["ponymix --device \"" + device + "\" toggle"], stderr=subprocess.STDOUT, shell=True)

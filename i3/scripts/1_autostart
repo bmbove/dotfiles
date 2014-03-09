@@ -24,7 +24,7 @@ function wait_for_program {
 ########################
 #   workspace 1: urxvt #
 ########################
-i3-msg "workspace 1: urxvt"
+i3-msg "workspace urxvt"
 
 urxvt &
 wait_for_program "URxvt" 1
@@ -49,34 +49,9 @@ wait_for_program "URxvt" 3
 #   workspace 2: devel #
 ########################
 
-i3-msg "workspace 2: devel"
-
-urxvt -e bash -c "/usr/bin/irssi" &
-wait_for_program "URxvt" 1
-
-i3-msg "split h"
-
-urxvt &
-wait_for_program "URxvt" 2
-
-i3-msg "split v"
-
-urxvt &
-wait_for_program "URxvt" 3
-
-i3-msg "layout tabbed"
-i3-msg "focus left"
-i3-msg "focus left"
-i3-msg "split v"
-
-urxvt &
-wait_for_program "URxvt" 4
-
-i3-msg "layout tabbed"
-
 #i3-msg "workspace 2: devel"
 
-#urxvt &
+#urxvt -e bash -c "/usr/bin/irssi" &
 #wait_for_program "URxvt" 1
 
 #i3-msg "split h"
@@ -84,18 +59,51 @@ i3-msg "layout tabbed"
 #urxvt &
 #wait_for_program "URxvt" 2
 
+#i3-msg "split v"
+
+#urxvt &
+#wait_for_program "URxvt" 3
+
+#i3-msg "layout tabbed"
+#i3-msg "focus left"
+#i3-msg "focus left"
+#i3-msg "split v"
+
+#urxvt &
+#wait_for_program "URxvt" 4
+
+#i3-msg "layout tabbed"
+
+i3-msg "workspace dev"
+
+urxvt &
+wait_for_program "URxvt" 1
+
+i3-msg "split h"
+
+urxvt &
+wait_for_program "URxvt" 2
+
 ########################
-#   workspace 3: www   #
+#   workspace ssh      #
 ########################
-i3-msg "workspace 3: www"
+i3-msg "workspace ssh"
+
+urxvt -e bash -c "/usr/bin/ssh boveb@flip2.engr.oregonstate.edu -t tmux a" &
+wait_for_program "URxvt" 1
+
+########################
+#   workspace 4: www   #
+########################
+i3-msg "workspace www"
 
 firefox &
 wait_for_program "Firefox" 1
 
 ########################
-#   workspace 4: file  #
+#   workspace 5: file  #
 ########################
-i3-msg "workspace 4: file"
+i3-msg "workspace file"
 
 thunar &
 wait_for_program "Thunar" 1
@@ -103,7 +111,7 @@ wait_for_program "Thunar" 1
 ########################
 #   workspace 7: www   #
 ########################
-i3-msg "workspace 7: www"
+i3-msg "workspace www:2"
 
 firefox &
 wait_for_program "Firefox" 1
@@ -111,7 +119,7 @@ wait_for_program "Firefox" 1
 ########################
 #   workspace 8: devel #
 ########################
-i3-msg "workspace 8: devel"
+i3-msg "workspace dev:2"
 
 urxvt &
 wait_for_program "URxvt" 1
@@ -122,6 +130,15 @@ urxvt &
 wait_for_program "URxvt" 2
 
 
+########################
+#   workspace mail     #
+########################
+i3-msg "workspace mail"
 
-i3-msg "workspace 1: urxvt"
-i3-msg "workspace 7: www"
+thunderbird &
+wait_for_program "Thunderbird" 1
+
+#######################
+
+i3-msg "workspace urxvt"
+i3-msg "workspace www:2"

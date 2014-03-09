@@ -34,9 +34,11 @@ URxvt*utmpInhibit:          true
 !! urxvt-url-select package
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.urlLauncher:   firefox
+URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.underline: true
 URxvt.underlineURLs: true
 URxvt.clipboard.autocopy: true
+URxvt.url-select.laucher: /usr/bin/firefox -new-tab
 
 URxvt*jumpScroll:           true
 URxvt*skipScroll:           false

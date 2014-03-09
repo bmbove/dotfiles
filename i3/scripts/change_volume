@@ -15,4 +15,4 @@ fi
 
 direction=$2
 
-volume=`ponymix --device ${device} ${direction} 5`
+volume=`ponymix --device ${device} ${direction} 1`

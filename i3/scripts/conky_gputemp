@@ -1,3 +1,4 @@
 #!/bin/sh
 
-aticonfig --adapter=0 --od-gettemperature | tail -n1 | gawk '{printf$5}'
+#aticonfig --adapter=0 --od-gettemperature | tail -n1 | gawk '{printf$5}'
+aticonfig --adapter=0 --od-gettemperature

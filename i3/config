@@ -198,4 +198,5 @@ assign [class='XCalc'] floating enable
 assign [class='xcalc'] floating enable
 assign [class='Keepassx'] floating enable
 
+exec pulseaudio --start
 exec --no-startup-id "$HOME/.i3/scripts/1_autostart"

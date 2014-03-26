@@ -40,7 +40,9 @@ TEXT
 
 [{  "full_text" : "${execi 300 $HOME/.dotfiles/i3/scripts/weather 97330}" , "color" : "\#FF0FF5" },
   { "full_text" : "CPU: ${hwmon 0 temp 1}C" , "color" : "\#BCA9F5" },
-  { "full_text" : "GPU: ${hwmon 3 temp 1}C" , "color" : "\#FA58AC" },
+#  { "full_text" : "GPU: ${hwmon 3 temp 1}C" , "color" : "\#FA58AC" },
+  { "full_text" : "GPU: ${exec $HOME/.i3/scripts/conky_gputemp}C" , "color" : "\#FA58AC" },
+  { "full_text" : "GPU Load: ${exec $HOME/.i3/scripts/gpu_load}" , "color" : "\#FA58AC" },
   { "full_text" : "UP: ${uptime}" , "color" : "\#F39811" },
   { "name":"speaker_volume", "full_text" : "SV: ${exec $HOME/.i3/scripts/conky_volume speakers}" , "color" : "\#FA5858" },
   { "name": "headset_volume", "full_text" : "HV: ${exec $HOME/.i3/scripts/conky_volume headset}" , "color" : "\#FFFF00" },

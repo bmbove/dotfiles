@@ -1,0 +1,2 @@
+#!/bin/sh
+aticonfig --odgc | tail -1 | awk '{print $4}'

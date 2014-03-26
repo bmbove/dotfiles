@@ -11,6 +11,7 @@ alias vi='vim'
 
 #PS1='\u@\h:$PWD\$ '
 EDITOR=/usr/local/bin/vim
+XAUTHORITY=/home/brian/.Xauthority
 
 function color_my_prompt {
     NORMAL="\[\033[0m\]"

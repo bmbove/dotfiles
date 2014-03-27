@@ -13,10 +13,14 @@ alias vi='vim'
 EDITOR=/usr/local/bin/vim
 XAUTHORITY=/home/brian/.Xauthority
 
+
 function color_my_prompt {
     NORMAL="\[\033[0m\]"
     RED="\[\033[31;1m\]"
-    local __user_and_host="\[\033[01;32m\]\u@\h"
+    local __user_and_host="\[\033[0;31m\]\u@\h"
+    if [[ $EUID -ne 0 ]]; then
+        local __user_and_host="\[\033[01;32m\]\u@\h"
+    fi
     local __cur_location="\[\033[01;35m\]\w"
     local __git_branch_color="\[\033[31m\]"
     local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'

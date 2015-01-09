@@ -1,20 +1,20 @@
 #!/bin/sh
 
-device=10
+device=7
 
 if [ $1 == "mem" ]; then
     #device=4
-    device=10
+    device=8
 fi
 
 if [ $1 == "cpu" ]; then
     #device=3
-    device=9
+    device=7
 fi
 
 set -o monitor
 top_out=`top -n 1 b | tail -n +8 | sort -n -k ${device} -r | head -1`
-pname=$(echo $top_out | awk '{print $12}')
+pname=$(echo $top_out | awk '{print $11}')
 percent=$(echo $top_out | awk "{print \$${device}}")
 percent=$(echo "$percent")
 
@@ -25,8 +25,14 @@ if [ $percent_len -lt 5 ]; then
 fi
 
 pname_len=$(echo $pname | awk '{print length}')
+
 if [ $pname_len  -lt 15 ]; then
     padding=$((15-pname_len))
     pname="$pname%${padding}s"
 fi
+
+if [ $pname_len -gt 15 ]; then
+    pname=$(echo $pname | cut -c 1-15)
+fi
+
 printf ${pname}${percent}%%

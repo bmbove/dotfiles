@@ -19,12 +19,12 @@ def change_volume(dev, button):
         device = "alsa_output.pci-0000_00_1b.0.analog-stereo"
     if dev == "headset":
         device = "alsa_output.usb-Plantronics_Plantronics_GameCom_780-00-P780.analog-stereo"
-    if button == "1":
+    if button == "4":
         direction = "increase"
-    if button == "3":
+    if button == "5":
         direction = "decrease"
 
-    if (button == "1") or (button == "3"):
+    if (button == "4") or (button == "5"):
         check_output(["ponymix --device \"" + device + "\" " + direction + " 1"], stderr=subprocess.STDOUT, shell=True)
 
     if button == "2":

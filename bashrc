@@ -12,6 +12,10 @@ alias vi='vim'
 #PS1='\u@\h:$PWD\$ '
 EDITOR=/usr/local/bin/vim
 XAUTHORITY=/home/brian/.Xauthority
+PATH=$PATH:~/.gem/ruby/2.1.0/bin
+export LESS=-RFX
+export LIBVA_DRIVER_NAME=vdpau
+export VDPAU_DRIVER=r600
 
 
 function color_my_prompt {

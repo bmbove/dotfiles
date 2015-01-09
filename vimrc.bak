@@ -24,15 +24,33 @@ Bundle 'bling/vim-bufferline'
 " Easy commenting
 Bundle 'scrooloose/nerdcommenter'
 
+" File tree 
+Bundle 'scrooloose/nerdtree'
+
 " python tools
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
+
+" latex stuff
+Bundle 'gerw/vim-latex-suite'
 
 " better python syntax highlighting
 Bundle 'python.vim'
 
+" git wrapper that I probably won't use
+Bundle 'tpope/vim-fugitive'
+
+" arduino compaitibility
+Bundle 'jplaut/vim-arduino-ino'
+
+" useful indent guides 
+Bundle 'nathanaelkane/vim-indent-guides'
+
 "--- over 80 characters highlight for python files --
 au BufRead,BufNewFile *.py highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 au BufNewFile,BufRead *.py match OverLength /\%>79v.\+/
+
+"--- 80 char column marker ---
+set colorcolumn=80
 
 "---color scheme---
 syntax on
@@ -91,6 +109,12 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
+nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
+nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-l> :wincmd l<CR>
+
 "--- general config --
 
 "---jump to last pos in file ---
@@ -138,6 +162,7 @@ endif
         let g:pymode_lint_checker = "pyflakes"
         let g:pymode_utils_whitespaces = 0
         let g:pymode_options = 0
+        let g:pymode_lint_ignore="E265,E113"
     " }
     " PythonMode {
         " Disable if python support not present
@@ -183,5 +208,18 @@ function! InitializeDirectories()
 endfunction
 call InitializeDirectories()
 " }
+"
+let g:pymode_rope_lookup_project = 0
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+" latex compile to pdf
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf, aux'
 
 filetype plugin indent on
+
+" shared registers across instances 
+set clipboard=unnamed

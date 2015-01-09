@@ -48,6 +48,8 @@ URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=10
 URxvt*italicFont: xft:DejaVu Sans Mono:italic:size=10
 URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:size=10
 
+URxvt.urgentOnBell: true
+
 URxvt.background:  #1e1e1e
 URxvt.foreground:  white
 URxvt.cursorColor: #00ff00

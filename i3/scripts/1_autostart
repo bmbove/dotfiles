@@ -7,11 +7,11 @@ function wait_for_program {
     do
     RESULTS=`xdotool search --onlyvisible --class ${1} | wc -l`
     if [ $RESULTS -ge $2 ]; then
-        return true
+        return 1 
     else
         if [ $n -eq 100 ]; then
             xmessage "Error executing ${1} instance ${2}"
-            return false
+            return 0 
         else
             n=`expr $n + 1`
             sleep .1
@@ -89,7 +89,7 @@ wait_for_program "URxvt" 2
 ########################
 i3-msg "workspace ssh"
 
-urxvt -e bash -c "/usr/bin/ssh boveb@flip2.engr.oregonstate.edu -t tmux a" &
+urxvt -e bash -c "/usr/bin/ssh boveb@shell.onid.oregonstate.edu -t tmux a" &
 wait_for_program "URxvt" 1
 
 ########################

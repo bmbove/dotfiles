@@ -53,4 +53,4 @@ TEXT
  { "full_text" : "${addr eth0}" , "color" : "\#31B404" },
  { "full_text" : "CPU: " , "color" : "\#ffffff" , "separator" : false },
   { "full_text" : "${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% " , "color" : "\#81F7D8" },
-{ "full_text" : "${time} " , "color" : "\#FFFFFF" }],
+{ "full_text" : "${time %a} ${time %d} ${time %b} ${time %Y} ${time %H}:${time %M}:${time %S}" , "color" : "\#FFFFFF" }],

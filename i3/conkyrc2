@@ -39,17 +39,17 @@ TEXT
 # JSON for i3bar
 
 [
-{ "full_text" : "${execi 300 $HOME/.dotfiles/i3/scripts/weather 97330}" , "color" : "\#FF0FF5" },
- { "full_text" : "pacman: ${execi 600 pacman -Qu | wc -l}" , "color" : "\#3CA9F5" },
+#{"full_text" : "${execi 300 cat $HOME/.dotfiles/i3/scripts/cur_weather}" , "color" : "\#FF0FF5" },
+# { "full_text" : "pacman: ${execi 600 cat $HOME/.i3/scripts/num_update}" , "color" : "\#3CA9F5" },
  { "full_text" : "GPU: ${hwmon 0 temp 1}C" , "color" : "\#BCA9F5" },
   { "full_text" : "CPU: ${hwmon 1 temp 1}C" , "color" : "\#FA58AC" },
 #  { "full_text" : "GPU: ${exec $HOME/.i3/scripts/conky_gputemp}C" , "color" : "\#FA58AC" },
 #  { "full_text" : "GPU Load: ${exec $HOME/.i3/scripts/gpu_load}" , "color" : "\#FA58AC" },
   { "full_text" : "UP: ${uptime}" , "color" : "\#F39811" },
-  { "name":"speaker_volume", "full_text" : "SV: ${exec $HOME/.i3/scripts/conky_volume speakers}" , "color" : "\#FA5858" },
-  { "name": "headset_volume", "full_text" : "HV: ${exec $HOME/.i3/scripts/conky_volume headset}" , "color" : "\#FFFF00" },
+#  { "name":"speaker_volume", "full_text" : "SV: ${exec $HOME/.i3/scripts/conky_volume speakers}" , "color" : "\#FA5858" },
+#  { "name": "headset_volume", "full_text" : "HV: ${exec $HOME/.i3/scripts/conky_volume headset}" , "color" : "\#FFFF00" },
 #  { "full_text" : "RPROC: ${running_processes}" , "color" : "\#FA58AC" },
 #  { "full_text" : "PROC: ${processes}" , "color" : "\#FF183C" },
-  { "full_text" : "TCPU: ${exec $HOME/.i3/scripts/conky_process cpu}" , "color" : "\#81F7D8" },
-  { "full_text" : "TMEM: ${exec $HOME/.i3/scripts/conky_process mem}" , "color" : "\#9AFE2E" },
+#  { "full_text" : "TCPU: ${exec $HOME/.i3/scripts/conky_process cpu}" , "color" : "\#81F7D8" },
+#  { "full_text" : "TMEM: ${exec $HOME/.i3/scripts/conky_process mem}" , "color" : "\#9AFE2E" },
 { "full_text" : "${time %a} ${time %d} ${time %b} ${time %Y} ${time %H}:${time %M}:${time %S}" , "color" : "\#FFFFFF" }],

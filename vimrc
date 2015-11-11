@@ -18,8 +18,8 @@ Bundle 'altercation/vim-colors-solarized'
 " Nifty status bar and prompts for bash, tmux, etc
 Bundle 'bling/vim-airline'
 
-" Shows buffers in status bar
-Bundle 'bling/vim-bufferline'
+" Shows buffers in status bar - NOTE: slows down command-t
+"Bundle 'bling/vim-bufferline'
 
 " Easy commenting
 Bundle 'scrooloose/nerdcommenter'
@@ -37,7 +37,7 @@ Bundle 'gerw/vim-latex-suite'
 Bundle 'python.vim'
 
 " git wrapper that I probably won't use
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
 
 " arduino compaitibility
 Bundle 'jplaut/vim-arduino-ino'
@@ -45,9 +45,19 @@ Bundle 'jplaut/vim-arduino-ino'
 " useful indent guides 
 Bundle 'nathanaelkane/vim-indent-guides'
 
+" javascript syntax highlighting
+"Bundle 'pangloss/vim-javascript'
+"Bundle 'mxw/vim-jsx'
+
+" quick file find
+Bundle 'wincent/command-t'
+
 "--- over 80 characters highlight for python files --
 au BufRead,BufNewFile *.py highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 au BufNewFile,BufRead *.py match OverLength /\%>79v.\+/
+
+"--- enable settings read from top of file ---
+set modeline
 
 "--- 80 char column marker ---
 set colorcolumn=80
@@ -142,7 +152,7 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    set statusline+=%{fugitive#statusline()} " Git Hotness
+    "set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " Filetype
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -221,5 +231,9 @@ let g:Tex_MultipleCompileFormats = 'pdf, aux'
 
 filetype plugin indent on
 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " shared registers across instances 
 set clipboard=unnamed
+
+" command-t ignore node_modules
+set wildignore+=.git/*,node_modules/*,*.pyc,dist/*

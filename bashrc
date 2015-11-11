@@ -8,14 +8,18 @@
 alias ls='ls --color=auto'
 alias la='ls -lah --color=auto'
 alias vi='vim'
+alias get='git'
 
 #PS1='\u@\h:$PWD\$ '
-EDITOR=/usr/local/bin/vim
+EDITOR=/usr/bin/vim
 XAUTHORITY=/home/brian/.Xauthority
-PATH=$PATH:~/.gem/ruby/2.1.0/bin
+PATH=$PATH:~/.gem/ruby/2.2.0/bin
 export LESS=-RFX
 export LIBVA_DRIVER_NAME=vdpau
 export VDPAU_DRIVER=r600
+export KICAD_PTEMPLATES='~/.kicadlib/KiCad-Libraries'
+export KISYS3DMOD='/usr/share/kicad/modules/packages3d'
+export KISYSMOD='/usr/share/kicad/modules'
 
 
 function color_my_prompt {

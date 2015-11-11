@@ -9,7 +9,7 @@ then
     #eval $(ssh-agent)
     export MAKEFLAGS='-j 6'
     export XAUTHORITY=/home/brian/.Xauthority
-    export EDITOR=/usr/local/bin/vim
+    export EDITOR=/usr/bin/vim
     setleds -D +num
     $HOME/scripts/login_startup.sh
 fi

@@ -89,7 +89,7 @@ wait_for_program "URxvt" 2
 ########################
 i3-msg "workspace ssh"
 
-urxvt -e bash -c "/usr/bin/ssh boveb@shell.onid.oregonstate.edu -t tmux a" &
+urxvt -e bash -c "/usr/bin/mosh root@abarone.com -- tmux a -t irssi" &
 wait_for_program "URxvt" 1
 
 ########################

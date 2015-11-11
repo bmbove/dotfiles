@@ -172,12 +172,15 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         output DVI-0
-        status_command $HOME/.i3/scripts/conky2
+        #status_command $HOME/.i3/scripts/conky2
+        #status_command python $HOME/.i3/status/run.py -c $HOME/.i3/i3status.conf
+        status_command python $HOME/projects/i3pybar/source/i3pybar.py settings2.conf
 }
 bar {
         #status_command i3status
         output DVI-1
-        status_command $HOME/.i3/scripts/conky
+        #status_command $HOME/.i3/scripts/conky
+        status_command python $HOME/projects/i3pybar/source/i3pybar.py
 }
 
 bar {
@@ -186,7 +189,7 @@ bar {
         #status_command $HOME/.i3/scripts/conky
 }
 
-workspace "media" output HDMI-3 
+#workspace "media" output HDMI-3 
 
 workspace "urxvt" output DVI-0
 workspace "dev" output DVI-0
@@ -204,7 +207,6 @@ workspace "extra" output DVI-1
 assign [class="Thunderbird"] "mail"
 assign [class="VirtualBox"] "vm"
 assign [class="Thunar"] "file"
-assign [class="Vlc"] "media"
 assign [class="Pavucontrol"] "extra"
 assign [class="Gedit"] "office"
 assign [class="Mplayer"] "media"
@@ -213,4 +215,3 @@ assign [class='xcalc'] floating enable
 assign [class='Keepassx'] floating enable
 
 exec --no-startup-id "$HOME/.i3/scripts/1_autostart"
-exec --no-startup-id cvlc --http-port=9090
